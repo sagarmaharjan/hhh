@@ -96,3 +96,9 @@
 	};
 
 	add_action('init', 'hhh_custom_gallery');
+
+
+	function mytheme_customize_register( $wp_customize ) {
+		//All our sections, settings, and controls will be added here
+	 }
+	 add_action( 'customize_register', 'mytheme_customize_register' );
