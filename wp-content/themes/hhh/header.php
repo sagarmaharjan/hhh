@@ -41,9 +41,9 @@
                             the_custom_logo();
                             }
                         ?>
-                        <a href="#">
-                            <img src="<?php echo get_template_directory_uri()?>/img/logo.png" alt="Hyolmo Helping Hands" title="Hyolmo Helping Hands">
-                        </a>
+                        <!--<a href="#">
+                            <img src="<?php //echo get_template_directory_uri()?>/img/logo.png" alt="Hyolmo Helping Hands" title="Hyolmo Helping Hands">
+                        </a> -->
                     </div>
                     <div class="menu-wrap">
                         <input type="checkbox" class="toggler">
