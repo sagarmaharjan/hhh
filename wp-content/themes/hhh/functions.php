@@ -95,10 +95,9 @@
 		);
 	};
 
+
     add_action('init', 'hhh_custom_gallery');
         
 
     require_once __DIR__ . '/inc/cmb2/init.php';
     require_once __DIR__ . '/inc/example-functions.php';
-
-    
