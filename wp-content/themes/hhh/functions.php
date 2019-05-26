@@ -56,6 +56,7 @@
             )
         );
     };
+
     add_action('init', 'hhh_custom_post_type');
 
     function theme_prefix_setup() {
@@ -71,3 +72,27 @@
 
 
     require_once get_template_directory() . '/inc/walker_menu.php';
+	
+	
+	function hhh_custom_gallery() {
+		register_post_type('gallery',
+		array(
+			'rewrite' => array('slug' => 'gallery'),
+			'labels' => array(
+				'name' => 'Gallery',
+				'singular_name' => 'Gallery',
+				'add_new_item' => 'Add New Gallery',
+				'edit_item' => 'Edit Gallery'
+			),
+			'menu-icon' => 'dashicons-format-gallery',
+			'public' => true,
+			'has_archive' => true,
+			'supports' => array(
+				'title', 'thumbnail', 'editor'
+			),
+			'taxonomies' => array('category')
+		)
+		);
+	};
+
+	add_action('init', 'hhh_custom_gallery');
