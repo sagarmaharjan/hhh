@@ -17,6 +17,24 @@
     add_action('after_setup_theme', 'hhh_init');
 
 
+    function twentynineteen_widgets_init() {
+
+        register_sidebar(
+            array(
+                'name'          => __( 'Footer', 'twentynineteen' ),
+                'id'            => 'sidebar-1',
+                'description'   => __( 'Add widgets here to appear in your footer.', 'twentynineteen' ),
+                'before_widget' => '<section id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</section>',
+                'before_title'  => '<h2 class="widget-title">',
+                'after_title'   => '</h2>',
+            )
+        );
+    
+    }
+    add_action( 'widgets_init', 'twentynineteen_widgets_init' );
+
+
     // adding custom post 
     function hhh_custom_post_type() {
         register_post_type('cause',
@@ -39,3 +57,17 @@
         );
     };
     add_action('init', 'hhh_custom_post_type');
+
+    function theme_prefix_setup() {
+
+        add_theme_support( 'custom-logo', array(
+        'height' => 500,
+        'width' => 500,
+        'flex-width' => true,
+        ) );
+        
+        }
+        add_action( 'after_setup_theme', 'theme_prefix_setup' );
+
+
+    require_once get_template_directory() . '/inc/walker_menu.php';

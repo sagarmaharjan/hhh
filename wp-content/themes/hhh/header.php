@@ -36,6 +36,11 @@
             <div class="container">
                 <div class="row">
                     <div class="logo">
+                        <?php
+                        if ( function_exists( ‘the_custom_logo’ ) ) {
+                            the_custom_logo();
+                            }
+                        ?>
                         <a href="#">
                             <img src="<?php echo get_template_directory_uri()?>/img/logo.png" alt="Hyolmo Helping Hands" title="Hyolmo Helping Hands">
                         </a>
@@ -48,14 +53,25 @@
                         <nav class="menu">
                             <div>
                                 <div>
-                                    <ul>
-                                        <li class="current"><a href="<?php echo site_url('');?>">Home</a></li>
-                                        <li><a href="<?php echo site_url('/about');?>">About us</a></li>
-                                        <li><a href="<?php echo site_url('/causes');?>">Causes</a></li>
-                                        <li><a href="<?php echo site_url('/gallery');?>">Gallery</a></li>
-                                        <li><a href="<?php echo site_url('/news');?>">News</a></li>
-                                        <li><a href="<?php echo site_url('/contact');?>">Contact</a></li>
-                                    </ul>
+                                    <!--<ul>
+                                        <li class="current"><a href="<?php //echo site_url('');?>">Home</a></li>
+                                        <li><a href="<?php //echo site_url('/about');?>">About us</a></li>
+                                        <li><a href="<?php // echo site_url('/causes');?>">Causes</a></li>
+                                        <li><a href="<?php //echo site_url('/gallery');?>">Gallery</a></li>
+                                        <li><a href="<?php //echo site_url('/news');?>">News</a></li>
+                                        <li><a href="<?php //echo site_url('/contact');?>">Contact</a></li>
+                                    </ul>-->
+                                    <?php
+                                    wp_nav_menu( array(
+                                        'menu'  => 'Primary Menu',
+                                        'depth'	          => 2, // 1 = no dropdowns, 2 = with dropdowns.
+                                        'container'       => '',
+                                        'container_class' => '',
+                                        'container_id'    => '',
+                                        'menu_class'      => '',
+                                        'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+                                        'walker'          => new WP_Bootstrap_Navwalker(),
+                                        ) );?>
                                 </div>
                             </div>
                         </nav>
